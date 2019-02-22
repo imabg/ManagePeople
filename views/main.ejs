@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs') %>
+
+<body class="container">
+  <h1 class="mb-4 mt-4">Manage People</h1>
+  <small class="ml-4">Crafted by: <a href="https://www.github.com/abhay676" target="_blank">Abhay Goswami</a></small>
+  <hr>
+  <form action="/redirect"method="post">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Name</label>
+      <input type="text" class="form-control" placeholder="Name" name="name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <hr>
+<ul class="list-group mt-4">
+  <h2>Members</h2>
+  <% if (person === null) {%>
+    <h3>No Item to display</h3>
+    <% } else { %>
+  <% for (let member of person) { %>
+  <li class="list-group-item"><%= member.name %>, <%= member.email %></li>
+  <% }  }%>
+</ul>
+</body>
+</html>
