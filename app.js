@@ -30,4 +30,8 @@ app.post("/redirect", (req, res, next) => {
   res.redirect("/");
 });
 
+app.use((req, res, next) => {
+  res.render("error", { pageTitle: "Page not Found!" });
+});
+
 app.listen(3000);
